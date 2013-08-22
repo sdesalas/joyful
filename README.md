@@ -3,6 +3,9 @@ joyful
 
 An Implementation of the Joyful Testing Language for websites and web applications.
 
+    ' file: /tests/google.joy
+    '
+
     TEST SUITE "Google Test Suite"
 
     SET SCREENSIZE TO 800 BY 600
@@ -17,6 +20,11 @@ An Implementation of the Joyful Testing Language for websites and web applicatio
     TAKE SCREENSHOT
     
     GO
+
+To execute:
+
+    joyful > run /tests/google.joy -engine:phantom -output:xunit
+
 
 Phase 1
 
