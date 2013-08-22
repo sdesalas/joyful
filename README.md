@@ -34,7 +34,7 @@ Phase 1
 Phase 2
 
 - joyful-online: Online Hosting and Execution of Joyful tests 
-- joyful-runner: Self-Hosted Execution of Joyful tests
+- joyful-runner: Command line executable for Joyful tests (Win/OSX/Unix)
 - joyful-designer: Web UI for designing Joyful tests
 
 Phase 3
