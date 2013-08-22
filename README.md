@@ -23,7 +23,7 @@ An Implementation of the Joyful Testing Language for websites and web applicatio
 
 To execute:
 
-    joyful > run /tests/google.joy -engine:phantom -output:xunit
+    $ joyful-runner /tests/google.joy -engine:phantom -format:xunit > results.xml
 
 
 Phase 1
