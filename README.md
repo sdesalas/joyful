@@ -4,14 +4,13 @@ joyful
 An Implementation of the Joyful Testing Language for websites and web applications.
 
     ' file: /tests/google.joy
-    '
 
     TEST SUITE "Google Test Suite"
-
+    
     SET SCREENSIZE TO 800 BY 600
 
     TEST "Search Google.com for Testing"
-
+    
     GO TO "http://www.google.com"
     CLICK "input[name=q]" AND WRITE "testing"
     CLICK "button:contains('Google Search')"
