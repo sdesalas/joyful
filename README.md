@@ -1,7 +1,7 @@
 joyful
 ======
 
-*Testing made simple - for everyone*
+An Implementation of the Joyful Testing Language for websites and web applications.
 
     ' file: /tests/google.joy
 
