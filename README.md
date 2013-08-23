@@ -1,7 +1,7 @@
 joyful
 ======
 
-*Testing for everyone*
+*Testing made simple - for everyone*
 
 An Implementation of the Joyful Testing Language for websites and web applications.
 
