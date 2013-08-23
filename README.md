@@ -27,7 +27,7 @@ To execute:
 
 Phase 1
 
-- joyful-language: Description of the Language, Parser and Validation Tools
+- joyful: Language Reference, Parser and Validation Tools
 - joyful-phantom: Joyful compiler into PhantomJS tests
 
 Phase 2
