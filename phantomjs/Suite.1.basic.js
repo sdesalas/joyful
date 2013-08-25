@@ -3,28 +3,15 @@
 phantom.injectJs("Joyful.core.js");
 phantom.injectJs("Joyful.suite.js");
 
-// # TEST SUITE "My Test Suite"
-Joyful.suite.name = "My Test Suite";
 
-// # TEST "My First Test"
-Joyful.suite.tests.push({
-	name: "My First Test",
-	payload: function(page) {
+// Add Suite logic
+Joyful.suite.lines = [
+	function() {this.name = "My Test Suite";},
+	function() {this.tests.push("My First Test");},
+	function() {this.page.open("http://www.phantoms.org");},
+	function() {this.page.assertExits('a#download');}
+]
 
-		// # GO TO "http://www.phantomjs.org"
-		Joyful.suite.open("http://www.phantomjs.org", function(page) {
-
-			// # CHECK "a#download" EXISTS
-			Joyful.assertExists(page, 'a#download');
-
-		});
-
-	}
-});
-
-
+// Execute
 Joyful.suite.execute();
-
-
-
 
