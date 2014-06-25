@@ -91,7 +91,7 @@ exports.compile = function(suitename, src, args, nowrap) {
 				// GO TO "string"
 				match = line.match(/^GO TO ("[^"]*"|@\w+)$/i);
 				if (match) {
-					output.add('casper.thenOpen({0}, function() {test.assertUrlMatch({0}, \'{1}\')});', variable(match[1]), line);
+					output.add('casper.thenOpen({0}, function() {test.assertUrlMatch({0}, \'{1}\')});', variable(match[1]), suitename + ' - ' + line);
 					asserts++;
 					success = true;
 				}
@@ -106,7 +106,7 @@ exports.compile = function(suitename, src, args, nowrap) {
 							'}, {0}, {1}); ' +
 							'test.assert(!!element, \'{2}\');' +  
 						'});', 
-					variable(match[1]), variable(match[2]), line);
+					variable(match[1]), variable(match[2]), suitename + ' - ' + line);
 					asserts++;
 					success = true;
 				}
@@ -117,7 +117,7 @@ exports.compile = function(suitename, src, args, nowrap) {
 						'casper.then(function() {' + 
 							'test.assertVisible({0}, \'{1}\');' + 
 						'}).thenClick({0});', 
-					variable(match[1]), line);
+					variable(match[1]), suitename + ' - ' + line);
 					asserts++;
 					success = true;
 				}
@@ -128,7 +128,7 @@ exports.compile = function(suitename, src, args, nowrap) {
 						'casper.then(function() {' + 
 							'test.assert{1}Visible({0}, \'{2}\');' + 
 						'});', 
-					variable(match[1]), match[2] ? "Not" : "", line);
+					variable(match[1]), match[2] ? "Not" : "", suitename + ' - ' + line);
 					asserts++;
 					success = true;
 				}
