@@ -1,42 +1,36 @@
-joyful
-======
+Phantom Test Runner
+-------
 
-An Implementation of the Joyful Testing Language for websites and web applications.
+Another PhantonJS Test Runner
 
-    ' file: /tests/google.joy
+Create 1.Login.test
 
-    TEST SUITE "Google Test Suite"
+    TEST "Log into Bobs hardware"
+
+    -- INITIALIZE
+    SET @username_box = "#login input[name=username]"
+    SET @password_box = "#login input[name=password]"
+    SET @login_button = "#login input[type=submit]"
+    SET @home_button = "nav > ul > li:nth-child(1)"
+    SET @welcome_message = "div#wrapper H3.welcome"
     
-    SET SCREENSIZE TO 800 BY 600
-
-    TEST "Search Google.com for Testing"
-    
-    GO TO "http://www.google.com"
-    CLICK "input[name=q]" AND WRITE "testing"
-    CLICK "button:contains('Google Search')"
-    WAIT FOR RESPONSE
-    CHECK "div#search H3.r" TEXT CONTAINS "Software testing - Wikipedia, the free encyclopedia"
+    -- COMMENCE TESTS
+    GO TO @url
     TAKE SCREENSHOT
+    CLICK @username_box AND WRITE @user
+    CLICK @password_box AND WRITE @password
+    TAKE SCREENSHOT
+    CLICK @login_button
+    CHECK @home_button EXISTS
+    CHECK @welcome_message TEXT CONTAINS "Welcome Bob"
+
+
+In windows:
+
+    run.bat tests\1.Login.test @url=http://dev.bobs-hardware.com/admin @user=bob @password=secret
     
-    GO
+In OSX:
 
-To execute:
-
-    $ joyful-runner /tests/google.joy -engine:phantom -format:xunit > results.xml
-
-
-Phase 1
-
-- joyful: Language Reference, Parser and Validation Tools
-- joyful-phantom: Joyful compiler into PhantomJS tests
-
-Phase 2
-
-- joyful-online: Online Hosting and Execution of Joyful tests 
-- joyful-runner: Command line executable for Joyful tests (Win/OSX/Unix)
-- joyful-designer: Web UI for designing Joyful tests
-
-Phase 3
- 
-- Joyful WebDriver.Net: Joyful compiler into WebDriver.Net tests
-- joyful-node: NPM package for running joyful tests
+    .\run.sh tests\1.Login.test @url=http://dev.bobs-hardware.com/admin @user=bob @password=secret
+    
+This will trigger off the test scenario using PhantomJS
